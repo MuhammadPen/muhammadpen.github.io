@@ -1,0 +1,41 @@
+---
+
+---
+
+<div id="container" class="flex flex-col max-w-5xl justify-self-center">
+  <div
+    id="hi-container"
+    class="w-fit m-5 p-5 bg-amber-700/10 border-blur rounded-xl"
+  >
+    {
+      [1, 2, 3, 4, 5].map((font, index) => (
+        <>
+          <span
+            class={`text-7xl font-extrabold font-sans hover:font-extralight hover:text-8xl transition-all duration-300`}
+          >
+            Hi.
+          </span>
+        </>
+      ))
+    }
+  </div>
+
+  <p>
+    I am <span class="text-2xl font-extrabold font-mono"
+      >fullstack software engineer</span
+    >
+  </p>
+
+  <p>I work mostly with Typescript.</p>
+  <p>
+    I like building cloud infrastructure with tools like pulumi. I've built on
+    AWS, GCP and Azure
+  </p>
+</div>
+
+<style>
+  .border-blur {
+    box-shadow: 0 0 100px 20px #ad540d;
+    border: none;
+  }
+</style>
