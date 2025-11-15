@@ -1,9 +1,22 @@
 @import "tailwindcss";
 
+@theme {
+  --animate-wiggle: wiggle 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: translateX(3px);
+    }
+    50% {
+      transform: translateX(-3px);
+    }
+  }
+}
+
 body {
   /* background-color: #ffffff; */
   color: #000;
-
+  text-transform: lowercase;
   /* cursor: none; */
 }
 

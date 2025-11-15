@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   link: string;
-  slides: { image: string; description: string }[];
+  slides: { image?: string; description?: string }[];
   color: string;
 }
 
@@ -10,29 +10,41 @@ const { title, link, slides, color } = Astro.props;
 ---
 
 <div class="flex flex-col text-right gap-2">
-  <a
-    href={link}
-    target="_blank"
-    class="external-link hover:underline text-2xl md:text-3xl">{title}</a
-  >
+  <div>
+    <a
+      href={link}
+      target="_blank"
+      class="external-link hover:underline text-2xl md:text-3xl">{title}</a
+    >
+  </div>
   <div
-    class="flex md:flex-row flex-col overflow-x-auto border-t"
+    class="project-showcase-container flex md:flex-row flex-col border-t"
     style={`background-color: ${color}20`}
   >
     {
-      slides.map((slide) => {
+      slides.map((slide, index) => {
         return (
-          <div class="flex md:flex-row flex-col-reverse w-full md:mr-16 mb-16 gap-x-96 gap-y-10 border-b">
-            <div class="border-r p-5">
-              <img
-                class="md:min-w-[768px] md:min-h-[425px] rounded-sm"
-                src={slide.image}
-                alt={slide.description}
-              />
-            </div>
-            <div class="md:min-w-[568px] md:min-h-[425px] text-2xl text-right leading-10 md:leading-13">
-              {slide.description}
-            </div>
+          <div class="project-showcase-content flex md:flex-row flex-col-reverse md:mr-16 mb-16 gap-x-96 gap-y-10 border-b">
+            {slide.image && (
+              <div class="md:border-r p-5">
+                <img
+                  class="md:min-w-[768px] md:min-h-[425px] rounded-sm"
+                  src={slide.image}
+                  alt={slide.description}
+                />
+              </div>
+            )}
+            {slide.description && (
+              <div class="relative md:min-w-[568px] md:min-h-[425px] text-2xl text-right leading-10 md:leading-12 whitespace-pre-line">
+                {slide.description}
+
+                {slides.length > 1 && index < slides.length - 2 && (
+                  <div class="hidden md:flex text-4xl absolute bottom-10 right-0 animate-wiggle">
+                    →
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         );
       })
@@ -45,5 +57,16 @@ const { title, link, slides, color } = Astro.props;
     content: " ↗";
     font-size: 0.75em;
     margin-right: 0.25em;
+  }
+
+  .project-showcase-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  .project-showcase-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
   }
 </style>
