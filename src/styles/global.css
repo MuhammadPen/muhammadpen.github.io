@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* ignore this warning */
 @theme {
   --animate-wiggle: wiggle 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   @keyframes wiggle {
@@ -13,6 +14,27 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+  background: transparent; /* gutter */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(50, 50, 50, 0.6);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(50, 50, 50, 0.6) transparent;
+}
+
+
 body {
   /* background-color: #ffffff; */
   color: #000;
@@ -22,7 +44,7 @@ body {
 
 .grain-background {
   background: 
-	linear-gradient(25deg, #ffffff, #ffffff00),
+	linear-gradient(25deg, #ffffff, #ffffff48),
 	url(/noise.svg);
 }
 

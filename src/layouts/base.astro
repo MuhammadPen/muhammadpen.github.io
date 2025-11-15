@@ -28,9 +28,21 @@ import "../styles/global.css";
           </div>
           <div class="flex py-4 justify-between text-3xl bg-black text-white">
             <!-- navigation -->
-            <a href="/about" class="hover:underline">about</a>
-            <a href="/projects" class="hover:underline">projects</a>
-            <a href="/contact" class="hover:underline">contact</a>
+            <a
+              href="/about"
+              class={`hover:underline ${Astro.url.pathname === "/about" ? "underline" : ""}`}
+              >about</a
+            >
+            <a
+              href="/projects"
+              class={`hover:underline ${Astro.url.pathname === "/projects" ? "underline" : ""}`}
+              >projects</a
+            >
+            <a
+              href="/contact"
+              class={`hover:underline ${Astro.url.pathname === "/contact" ? "underline" : ""}`}
+              >contact</a
+            >
           </div>
         </div>
       </div>
