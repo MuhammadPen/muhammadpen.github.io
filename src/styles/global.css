@@ -45,7 +45,7 @@ body {
 .grain-background {
   background: 
 	linear-gradient(25deg, #ffffff, #ffffff48),
-	url(/noise.svg);
+	url(/src/assets/noise.svg);
 }
 
 .custom-cursor {

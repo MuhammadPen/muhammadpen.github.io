@@ -1,8 +1,10 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
   title: string;
   link: string;
-  slides: { image?: string; description?: string }[];
+  slides: { image?: ImageMetadata; description?: string }[];
   color: string;
 }
 
@@ -26,10 +28,16 @@ const { title, link, slides, color } = Astro.props;
             <div class="showcase-slide flex md:flex-row flex-col-reverse md:mr-16 mb-16 gap-x-96 gap-y-10 border-b">
               {slide.image && (
                 <div class="md:border-r p-5">
-                  <img
+                  <Image
                     class="md:min-w-[768px] md:min-h-[425px] rounded-sm"
                     src={slide.image}
-                    alt={slide.description}
+                    alt={slide.description || title}
+                    width={768}
+                    height={425}
+                    format="webp"
+                    quality={80}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               )}
