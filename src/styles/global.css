@@ -1,6 +1,29 @@
 @import "tailwindcss";
 
 body {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   color: #000;
+
+  /* cursor: none; */
+}
+
+.grain-background {
+  background: 
+	linear-gradient(25deg, #ffffff, #ffffff00),
+	url(/noise.svg);
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  transform: translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0) translate(-50%, -50%);
+  will-change: transform;
 }

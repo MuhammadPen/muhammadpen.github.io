@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Muhammad Pen</title>
+  </head>
+  <body class="flex flex-col h-screen p-10">
+    <div class="custom-cursor"></div>
+    <div class="flex flex-col flex-1 border grain-background">
+      <div class="flex">
+        <div class="hidden md:flex flex-1 h-92 bg-black">
+          <!-- 3d avatar container -->
+        </div>
+        <div class="flex flex-4 flex-col justify-between">
+          <!-- info and navigation -->
+          <div
+            class="flex flex-col text-right text-3xl leading-10 md:text-5xl md:leading-15"
+          >
+            <span> muhammad.bin.fayyaz </span>
+            <span> fullstack.software.engineer </span>
+            <span> cloud.architect </span>
+          </div>
+          <div class="flex py-4 justify-between text-3xl bg-black text-white">
+            <!-- navigation -->
+            <a href="/about" class="hover:underline">about</a>
+            <a href="/projects" class="hover:underline">projects</a>
+            <a href="/contact" class="hover:underline">contact</a>
+          </div>
+        </div>
+      </div>
+      <slot />
+    </div>
+
+    <script>
+      let cursorX = -100;
+      let cursorY = -100;
+      let isMoving = false;
+
+      document.addEventListener(
+        "mousemove",
+        (e) => {
+          cursorX = e.clientX;
+          cursorY = e.clientY;
+
+          if (!isMoving) {
+            isMoving = true;
+            requestAnimationFrame(updateCursor);
+          }
+        },
+        { passive: true }
+      );
+
+      function updateCursor() {
+        document.documentElement.style.setProperty(
+          "--cursor-x",
+          `${cursorX}px`
+        );
+        document.documentElement.style.setProperty(
+          "--cursor-y",
+          `${cursorY}px`
+        );
+        isMoving = false;
+      }
+    </script>
+  </body>
+</html>

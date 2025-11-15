@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../layouts/base.astro";
+---
+
+<BaseLayout>
+  <div class="flex">
+    <div class="flex-1"></div>
+    <div
+      class="flex flex-4 flex-col text-right text-2xl pt-10 leading-10 md:text-3xl md:leading-13"
+    >
+      <span>hi.</span>
+      <span
+        >im {new Date().getFullYear() - 1999} years old. i live in pakistan.</span
+      >
+      <span
+        >ive been writing software professionally for {
+          new Date().getFullYear() - 2019
+        } years.</span
+      >
+      <span
+        >i started as a frontend react dev, transitioned into node and then
+        moved to designing and building cloud infrastructure.</span
+      >
+
+      <span>i believe that simple is better.</span>
+      <span>i like learning by doing. so im always doing stuff.</span>
+      <span>
+        building games. playing games. making music. drawing. digital painting.
+        politics. social justice.</span
+      >
+      <span>basketball > cricket.</span>
+    </div>
+  </div>
+</BaseLayout>
